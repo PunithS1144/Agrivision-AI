@@ -1,0 +1,1002 @@
+/* AgriVision Component System */
+
+/* --- Buttons --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    user-select: none;
+    min-height: 44px;
+}
+
+.btn-primary {
+    background-color: var(--primary-600);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-700);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.btn-secondary {
+    background-color: var(--primary-100);
+    color: var(--primary-800);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-200);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-subtle);
+    border-color: var(--primary-400);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-pill {
+    border-radius: var(--radius-full);
+}
+
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: var(--radius-full);
+}
+
+/* --- Cards --- */
+.agri-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-smooth), transform var(--transition-fast);
+}
+
+.agri-card-hover:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* --- Badges & Chips --- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    text-transform: capitalize;
+}
+
+.badge-healthy {
+    background-color: var(--status-healthy-bg);
+    color: var(--status-healthy);
+}
+
+.badge-warning {
+    background-color: var(--status-warning-bg);
+    color: var(--status-warning);
+}
+
+.badge-danger {
+    background-color: var(--status-danger-bg);
+    color: var(--status-danger);
+}
+
+.badge-info {
+    background-color: var(--status-info-bg);
+    color: var(--status-info);
+}
+
+/* --- Quick Actions Banner --- */
+.hero-action-card {
+    background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-600) 100%);
+    color: #ffffff;
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-action-card::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* --- Forms & Inputs --- */
+.form-group {
+    margin-bottom: var(--space-4);
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.form-control {
+    width: 100%;
+    height: 46px;
+    padding: 0 var(--space-4);
+    font-size: 15px;
+    color: var(--text-primary);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232e7d32' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* --- Segmented Control / Tabs --- */
+.tab-nav {
+    display: flex;
+    background-color: var(--bg-subtle);
+    padding: 4px;
+    border-radius: var(--radius-md);
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.tab-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tab-btn.active {
+    background-color: var(--bg-surface);
+    color: var(--primary-700);
+    box-shadow: var(--shadow-xs);
+}
+
+/* --- Image Upload & Scanner Box --- */
+.upload-dropzone {
+    border: 2px dashed var(--primary-300);
+    background-color: var(--primary-50);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-4);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-dropzone:hover {
+    border-color: var(--primary-600);
+    background-color: var(--primary-100);
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4caf50, transparent);
+    box-shadow: 0 0 12px #4caf50;
+    animation: scanAnim 2s infinite ease-in-out;
+    display: none;
+}
+
+@keyframes scanAnim {
+    0% { top: 0%; opacity: 0.8; }
+    50% { top: 96%; opacity: 1; }
+    100% { top: 0%; opacity: 0.8; }
+}
+
+/* --- Modals & Bottom Sheets --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 30, 16, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+}
+
+.modal-backdrop.active {
+    display: flex;
+}
+
+.modal-dialog {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-xl);
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Bottom Sheet */
+@media (max-width: 768px) {
+    .modal-backdrop.sheet-mode {
+        align-items: flex-end;
+        padding: 0;
+    }
+    .modal-backdrop.sheet-mode .modal-dialog {
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        max-width: 100%;
+        animation: sheetUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}
+
+@keyframes sheetUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* --- Toast Alerts --- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.toast {
+    background-color: var(--primary-900);
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: toastSlide 0.25s ease-out;
+}
+
+@keyframes toastSlide {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   PHASE 4: OFFLINE MODE, EDGE INFERENCE & SMART CAMERA HUD
+   ============================================================ */
+
+/* --- Network Status & Sync Badges --- */
+.network-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 700;
+    transition: all var(--transition-fast);
+}
+
+.network-pill.online {
+    background-color: var(--status-healthy-bg);
+    color: var(--status-healthy);
+    border: 1px solid rgba(46, 125, 50, 0.25);
+}
+
+.network-pill.online .dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--status-healthy);
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(46, 125, 50, 0.6);
+}
+
+.network-pill.offline {
+    background-color: var(--status-warning-bg);
+    color: var(--status-warning);
+    border: 1px solid rgba(230, 81, 0, 0.3);
+}
+
+.network-pill.offline .dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--status-warning);
+    border-radius: 50%;
+}
+
+.pending-sync-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #90caf9;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.pending-sync-badge:hover {
+    background: #bbdefb;
+    transform: translateY(-1px);
+}
+
+.global-offline-banner {
+    background: #fff3e0;
+    border-bottom: 2px solid #ff9800;
+    color: #e65100;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+/* --- Smart Camera Viewfinder Overlay --- */
+.smart-camera-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: 2500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smart-camera-viewfinder {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background: #0a0f0d;
+}
+
+.camera-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+}
+
+.camera-icon-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.camera-quality-pill {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+}
+
+.camera-quality-pill .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff5252;
+}
+
+.camera-stream-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#smart-camera-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Leaf Target Reticle Overlay */
+.camera-reticle {
+    position: absolute;
+    width: 68%;
+    height: 52%;
+    border-radius: 24px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-reticle .reticle-corner {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-color: rgba(255, 255, 255, 0.7);
+    border-style: solid;
+    transition: all 0.2s ease;
+}
+
+.camera-reticle .top-left { top: -2px; left: -2px; border-width: 4px 0 0 4px; border-top-left-radius: 20px; }
+.camera-reticle .top-right { top: -2px; right: -2px; border-width: 4px 4px 0 0; border-top-right-radius: 20px; }
+.camera-reticle .bottom-left { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; border-bottom-left-radius: 20px; }
+.camera-reticle .bottom-right { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; border-bottom-right-radius: 20px; }
+
+.reticle-leaf-icon {
+    font-size: 42px;
+    opacity: 0.25;
+}
+
+.camera-reticle.ready .reticle-corner {
+    border-color: #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+}
+
+.camera-reticle.warning .reticle-corner {
+    border-color: #ffa726;
+}
+
+/* Guidance Floating Banner */
+.camera-guidance-banner {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(18, 25, 20, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(12px);
+    white-space: nowrap;
+    max-width: 90%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* HUD Real-Time Telemetry Bar */
+.camera-hud-metrics {
+    position: absolute;
+    bottom: 110px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 6px 20px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+    z-index: 10;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.hud-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hud-val {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Shutter Controls */
+.camera-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 28px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10;
+}
+
+.camera-shutter-btn {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+}
+
+.camera-shutter-btn:active {
+    transform: scale(0.92);
+}
+
+.camera-shutter-btn .shutter-inner {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.camera-shutter-btn.ready .shutter-inner {
+    background: #4caf50;
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
+}
+
+.camera-shutter-btn.flash {
+    background: #ffffff;
+}
+
+/* ============================================================
+   PHASE 5: MULTILINGUAL VOICE ASSISTANT & LOW-LITERACY HUD
+   ============================================================ */
+
+/* Giant Kisan Microphone Button */
+.kisan-big-mic-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.45);
+    color: #ffffff;
+    font-size: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+}
+
+.kisan-big-mic-btn:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+    box-shadow: 0 12px 30px rgba(45, 106, 79, 0.6);
+}
+
+.kisan-big-mic-btn.listening {
+    background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+    box-shadow: 0 8px 28px rgba(229, 57, 53, 0.65);
+    animation: micPulse 1.4s infinite;
+}
+
+#chat-mic-btn.listening {
+    color: #ffffff !important;
+    background: #e53935 !important;
+    border-color: #e53935 !important;
+    box-shadow: 0 0 12px rgba(229, 57, 53, 0.6);
+    animation: micPulse 1.2s infinite;
+}
+
+/* Pulsing Wave Ring */
+.mic-pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--primary-500);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mic-pulse-ring.active {
+    animation: ringExpand 1.5s infinite ease-out;
+}
+
+@keyframes ringExpand {
+    0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(1.7); opacity: 0; }
+}
+
+@keyframes micPulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.08); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Floating Voice FAB in Bottom-Right Corner */
+.floating-kisan-mic-fab {
+    position: fixed;
+    bottom: 80px;
+    right: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+    border: 3px solid #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1200;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-kisan-mic-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 28px rgba(45, 106, 79, 0.5);
+}
+
+/* Header Language Dropdown */
+.header-lang-select {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.header-lang-select:focus {
+    border-color: var(--primary-600);
+}
+
+/* ============================================================
+   PHASE 6: PRECISION FARMING, SATELLITE NDVI & OUTBREAK GIS
+   ============================================================ */
+
+.precision-map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #141b18;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+#precision-gis-map {
+    width: 100%;
+    height: 100%;
+    background: #111714;
+}
+
+.map-floating-controls {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.map-layer-btn {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--transition-fast);
+}
+
+.map-layer-btn.active {
+    background: var(--primary-800);
+    color: #ffffff;
+    border-color: var(--primary-900);
+}
+
+.map-ndvi-legend {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    z-index: 500;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    font-size: 11px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.ndvi-gradient-bar {
+    width: 140px;
+    height: 10px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #d73027 0%, #fee08b 35%, #a6d96a 65%, #1a9850 100%);
+    margin: 4px 0;
+}
+
+/* Crop Calendar Stepper */
+.calendar-stepper {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 12px;
+    scrollbar-width: none;
+}
+
+.calendar-step-card {
+    min-width: 190px;
+    padding: 14px;
+    border-radius: var(--radius-md);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-color-subtle);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.calendar-step-card.active {
+    background: var(--primary-50);
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 1px var(--primary-500);
+}
+
+.calendar-step-card .step-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* ================= PHASE 7: FARMER COMMUNITY & EXPERT NETWORK ================= */
+.expert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+.expert-badge.verified-green {
+    background: #ecfdf5;
+    color: #065f46;
+    border-color: #a7f3d0;
+}
+
+.expert-callout {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #16a34a;
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin: 12px 0 8px;
+}
+
+.filter-pills-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+}
+
+.filter-pill {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+}
+
+.filter-pill.active {
+    background: var(--primary-600);
+    color: #ffffff;
+    border-color: var(--primary-600);
+    box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+}
+
+.comment-thread-item {
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    background: var(--bg-subtle);
+    margin-bottom: 8px;
+    border: 1px solid var(--border-color-subtle);
+}
+
+.comment-thread-item.expert-reply {
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.comment-thread-nested {
+    margin-left: 24px;
+    border-left: 2px solid var(--border-color);
+    padding-left: 12px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.action-btn:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+}
+
+.action-btn.active {
+    background: var(--primary-50);
+    color: var(--primary-700);
+    border-color: var(--primary-400);
+}

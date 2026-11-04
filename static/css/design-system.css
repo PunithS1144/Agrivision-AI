@@ -1,0 +1,112 @@
+/* AgriVision Plantix AI Modern Design System */
+:root {
+    /* Nature-Inspired Brand Colors */
+    --primary-900: #0f3d13;
+    --primary-800: #1b5e20;
+    --primary-700: #25732b;
+    --primary-600: #2e7d32;
+    --primary-500: #388e3c;
+    --primary-400: #4caf50;
+    --primary-300: #81c784;
+    --primary-200: #c8e6c9;
+    --primary-100: #e8f5e9;
+    --primary-50:  #f4faf4;
+
+    /* Earth & Sun Accents */
+    --accent-amber: #e65100;
+    --accent-amber-light: #fff3e0;
+    --accent-blue: #0277bd;
+    --accent-blue-light: #e1f5fe;
+    --accent-brown: #5d4037;
+
+    /* Status Colors */
+    --status-healthy: #2e7d32;
+    --status-healthy-bg: #e8f5e9;
+    --status-warning: #e65100;
+    --status-warning-bg: #fff8e1;
+    --status-danger: #c62828;
+    --status-danger-bg: #ffebee;
+    --status-info: #0277bd;
+    --status-info-bg: #e1f5fe;
+
+    /* Neutrals & Surfaces */
+    --bg-page: #f5f8f5;
+    --bg-surface: #ffffff;
+    --bg-surface-raised: #ffffff;
+    --bg-subtle: #eef3ee;
+    --border-color: #dbe4db;
+    --border-color-subtle: #ebf0eb;
+
+    /* Text Hierarchy */
+    --text-primary: #172b19;
+    --text-secondary: #4a634e;
+    --text-muted: #748c77;
+    --text-on-primary: #ffffff;
+
+    /* Elevation & Shadows */
+    --shadow-xs: 0 1px 2px rgba(23, 43, 25, 0.04);
+    --shadow-sm: 0 2px 6px rgba(23, 43, 25, 0.06);
+    --shadow-md: 0 6px 16px rgba(23, 43, 25, 0.08);
+    --shadow-lg: 0 12px 32px rgba(23, 43, 25, 0.12);
+    --shadow-sheet: 0 -8px 24px rgba(23, 43, 25, 0.14);
+
+    /* Radii */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+
+    /* Spacing Scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-size: 15px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+a {
+    color: var(--primary-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-800);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

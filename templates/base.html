@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AgriVision AI — Plantix Precision Agricultural Intelligence</title>
+
+    <!-- PWA Web App Manifest -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#1b5e20">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Design System & Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/design-system.css') }}?v=2.6">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}?v=2.6">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}?v=2.6">
+
+    <style>
+        .refresh-spin {
+            animation: spinAnim 0.8s linear infinite;
+        }
+        @keyframes spinAnim {
+            100% { transform: rotate(360deg); }
+        }
+        .header-lang-select {
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--primary-300);
+            background: #ffffff;
+            color: var(--primary-900);
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .header-lang-select:hover {
+            border-color: var(--primary-600);
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+        }
+        .floating-action-group {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 9999;
+        }
+        .floating-kisan-mic-fab {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: #ffffff;
+            border: 2.5px solid #ffffff;
+            box-shadow: 0 8px 24px rgba(27, 94, 32, 0.45);
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .floating-kisan-mic-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 28px rgba(27, 94, 32, 0.6);
+        }
+        .floating-refresh-fab {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ffffff;
+            color: var(--primary-800);
+            border: 1.5px solid var(--primary-300);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            align-self: flex-end;
+            transition: all 0.2s ease;
+        }
+        .floating-refresh-fab:hover {
+            transform: scale(1.08);
+            border-color: var(--primary-700);
+        }
+    </style>
+</head>
+<body class="agri-app-body">
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar">
+            <div class="sidebar-header" onclick="App.navigateTo('home')" style="cursor: pointer;">
+                <div class="app-brand-logo">🌿</div>
+                <div>
+                    <div class="app-brand-title" data-i18n="app_title">AgriVision AI</div>
+                    <div class="app-brand-subtitle" data-i18n="app_subtitle">Plantix Precision v2.0</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#home" class="nav-link active" data-screen="home">
+                    <span class="nav-icon">🏡</span>
+                    <span data-i18n="nav_dashboard">Dashboard</span>
+                </a>
+                <a href="#diagnose" class="nav-link" data-screen="diagnose">
+                    <span class="nav-icon">🔬</span>
+                    <span data-i18n="nav_diagnose">Crop Diagnosis</span>
+                </a>
+                <a href="#history" class="nav-link" data-screen="history">
+                    <span class="nav-icon">📋</span>
+                    <span data-i18n="nav_history">Diagnosis History</span>
+                </a>
+                <a href="#calculator" class="nav-link" data-screen="calculator">
+                    <span class="nav-icon">⚖️</span>
+                    <span data-i18n="nav_calculator">Fertilizer Calculator</span>
+                </a>
+                <a href="#weather" class="nav-link" data-screen="weather">
+                    <span class="nav-icon">🌦️</span>
+                    <span data-i18n="nav_weather">Weather & Spray</span>
+                </a>
+                <a href="#precision" class="nav-link" data-screen="precision">
+                    <span class="nav-icon">🛰️</span>
+                    <span data-i18n="nav_precision">Precision & Satellite</span>
+                </a>
+                <a href="#crops" class="nav-link" data-screen="crops">
+                    <span class="nav-icon">🌱</span>
+                    <span data-i18n="nav_crops">My Crops & Farms</span>
+                </a>
+                <a href="#community" class="nav-link" data-screen="community">
+                    <span class="nav-icon">👥</span>
+                    <span data-i18n="nav_community">Farmer Community</span>
+                </a>
+                <a href="#retailers" class="nav-link" data-screen="retailers">
+                    <span class="nav-icon">🏪</span>
+                    <span data-i18n="nav_retailers">Marketplace</span>
+                </a>
+                <a href="#chat" class="nav-link" data-screen="chat">
+                    <span class="nav-icon">💬</span>
+                    <span data-i18n="nav_agronomist">AI Agronomist</span>
+                </a>
+                <a href="#profile" class="nav-link" data-screen="profile">
+                    <span class="nav-icon">⚙️</span>
+                    <span data-i18n="nav_settings">Profile & Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-user-card" onclick="App.navigateTo('profile')" style="cursor: pointer;">
+                <div class="avatar" id="sidebar-user-avatar">👨‍🌾</div>
+                <div style="flex: 1; min-width: 0;">
+                    <div id="header-user-name" style="font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ramesh Kumar</div>
+                    <div id="header-user-role" style="font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Verified Farmer</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Top Sticky Header -->
+            <header class="top-header">
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <span class="header-location-badge" id="header-loc-chip" onclick="WeatherController.useLiveLocation()" title="Click to use live GPS position" style="cursor: pointer;">
+                        <span>📍</span>
+                        <span id="header-city-text">Doddaballapur, Bengaluru Rural</span>
+                    </span>
+                    <span id="network-status-badge" class="network-pill online" title="Cloud Active">
+                        <span class="dot"></span> Online
+                    </span>
+                    <span id="pending-sync-badge" class="pending-sync-badge" style="display: none;" onclick="SyncManager.triggerSync()">
+                        🔄 0 Pending Sync
+                    </span>
+                </div>
+                <div class="header-actions">
+                    <!-- Global Refresh Button -->
+                    <button type="button" class="btn btn-outline btn-pill" id="global-refresh-btn" onclick="App.refreshAllData()" title="Refresh All Data Feeds" style="font-size: 13px; padding: 6px 12px; gap: 6px;">
+                        <span>🔄</span> <span data-i18n="refresh_btn">Refresh</span>
+                    </button>
+
+                    <!-- Language Selector Dropdown -->
+                    <select id="header-lang-picker" class="header-lang-select" onchange="I18n.setLanguage(this.value)" title="Select Regional Language">
+                        <option value="en" selected>🌐 English</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                    </select>
+
+                    <!-- Kisan Voice Assistant Button -->
+                    <button type="button" class="btn btn-outline btn-pill" style="font-size: 13px; padding: 6px 12px; gap: 6px;" onclick="VoiceAssistant.openModal()" title="Open Voice Agronomist">
+                        <span>🎙️</span> <span data-i18n="voice_assistant_btn">Kisan Voice</span>
+                    </button>
+
+                    <!-- User Auth / Sign In Button -->
+                    <button type="button" class="btn btn-primary btn-pill" id="header-login-btn" onclick="App.openLoginModal()" style="font-size: 13px; padding: 6px 14px; gap: 6px;">
+                        <span>🔑</span> <span data-i18n="nav_login">Sign In</span>
+                    </button>
+                    <button type="button" class="btn btn-outline btn-pill" id="header-signout-btn" onclick="App.logout()" style="display: none; font-size: 12px; padding: 4px 10px;">
+                        <span>🚪</span> <span data-i18n="nav_signout">Sign Out</span>
+                    </button>
+
+                    <!-- Notification Bell -->
+                    <button type="button" class="btn btn-outline btn-icon" style="width: 38px; height: 38px; position: relative;" onclick="Components.openModal('modal-notifications')">
+                        🔔
+                        <span id="header-notification-count" class="badge badge-danger" style="position: absolute; top: -4px; right: -4px; font-size: 10px; padding: 2px 5px; display: none;">0</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Global Offline Warning Banner -->
+            <div id="global-offline-banner" class="global-offline-banner" style="display: none;">
+                <div>
+                    <strong>⚠️ You are in Offline Mode:</strong> Viewing locally cached records. Diagnoses and field logs will queue in IndexedDB and synchronize automatically when network is restored.
+                </div>
+                <button class="btn btn-outline" style="font-size: 11px; padding: 3px 8px; border-color: #e65100; color: #e65100;" onclick="SyncManager.triggerSync()">
+                    Test Connection
+                </button>
+            </div>
+
+            <!-- Screen Container -->
+            <main class="content-container">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <button class="mobile-nav-btn active" data-screen="home">
+            <span class="mobile-nav-icon">🏡</span>
+            <span data-i18n="nav_dashboard">Home</span>
+        </button>
+        <button class="mobile-nav-btn" data-screen="diagnose">
+            <span class="mobile-nav-icon">🔬</span>
+            <span data-i18n="nav_diagnose">Diagnose</span>
+        </button>
+        <button class="mobile-nav-btn" data-screen="weather">
+            <span class="mobile-nav-icon">🌦️</span>
+            <span data-i18n="nav_weather">Weather</span>
+        </button>
+        <button class="mobile-nav-btn" data-screen="precision">
+            <span class="mobile-nav-icon">🛰️</span>
+            <span data-i18n="nav_precision">Satellite</span>
+        </button>
+        <button class="mobile-nav-btn" data-screen="chat">
+            <span class="mobile-nav-icon">💬</span>
+            <span data-i18n="nav_agronomist">Agronomist</span>
+        </button>
+    </nav>
+
+    <!-- Floating Action Group -->
+    <div class="floating-action-group">
+        <button type="button" class="floating-refresh-fab" onclick="App.refreshAllData()" title="Quick Refresh Feeds">
+            🔄
+        </button>
+        <button type="button" class="floating-kisan-mic-fab" onclick="VoiceAssistant.openModal()" title="Ask Kisan Voice Assistant">
+            🎙️
+        </button>
+    </div>
+
+    <!-- Core Scripts Loaded in Dependency Order with Cache-Busting -->
+    <script src="{{ url_for('static', filename='js/i18n.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/voice-assistant.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/offline-storage.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/edge-inference.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/smart-camera.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/sync-manager.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/components.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/diagnosis.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/calculator.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/weather.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/precision-map.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/community.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/marketplace.js') }}?v=3.3"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}?v=3.3"></script>
+
+    <script>
+        // Register Service Worker for Offline PWA execution
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}?v=3.3")
+                    .then(reg => {
+                        console.log('[ServiceWorker] Active with scope:', reg.scope);
+                        reg.update();
+                    })
+                    .catch(err => console.warn('[ServiceWorker] Registration error:', err));
+            });
+        }
+    </script>
+</body>
+</html>
